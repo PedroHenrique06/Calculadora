@@ -3,43 +3,46 @@
 }
 
 body {
-    background-image: linear-gradient(to right, #73cee6, #33778a);
+    background-color: rgb(148, 148, 252);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .calculator {
     position: fixed; 
     left: 50%;
-    width: 480px;
-    height: 800px;
+    width: 396px;
+    height: 600px;
     margin-top: 15px;
     margin-left: -17em;
-}
-
-.numeric {
-    width: 100px;
-    height: 90px;
-    display: inline-block;
-    background: #191a1c;
-    color: #969ea5;
-    font-size: 40px;
-    text-align: center;
-    vertical-align: middle p !important; /* Observar o funcionamento do !important */
-    margin-left: -5px;
-    padding-top: 20px;
-    cursor: pointer; /* Observar o funcionamento do cursor */
-}
-
-.numeric:active {
-    background: #f0f0f5 !important;
-    color: #191a1c !important;
+    box-shadow: 2px 2px 10px 5px rgb(70, 70, 70);
+    
 }
 
 .visor {
     width: 400px;
     height: 150px;
     margin-left: -5px;
-    background: #f6f7fa;
+    background: #e8e8e8;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.numeric {
+    width: 100px;
+    height: 90px;
+    display: inline-block;
+    background: #011b80;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle p !important;
+    margin-left: -5px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.numeric:active {
+    background: #f0f0f5 !important;
+    color: #191a1c !important;
 }
 
 .total {
@@ -61,12 +64,14 @@ body {
 
 .zero {
     width: 200px !important;
+    border-radius: 0px 0px 0px 10px;
 }
 
 .action {
-    background: #242529 !important;
+    background: #041350 !important;
 }
 
 .result {
-    background: #267e94 !important;
+    background: #002fff !important;
+    border-radius: 0px 0px 10px 0px;
 }
