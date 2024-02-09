@@ -1,7 +1,6 @@
 let count = []
 const MAX_VISOR_CHAR = 9
 
-
 // Adiciona o valor ao visor 
 function AddNumber(num){
     document.getElementById("total").removeAttribute("hidden")
@@ -31,8 +30,6 @@ function CalcAction(action) {
     document.getElementById("total").innerHTML = ""
 
     count.push(action)
-    console.log(count)
-
 }
 
 // Limpa toda informação do visor e do histórico
@@ -47,6 +44,7 @@ function CleanCurrentEntry() {
     document.getElementById("total").innerHTML = ""
 }
 
+// Transforma o número em porcentagem
 function Percentage() {
     let currentNumber = document.getElementById("total").innerHTML
 
@@ -80,7 +78,6 @@ function Result() {
     // Organiza a linha com os calculos
     document.getElementById("accumulator").innerHTML += ` ${document.getElementById("total").innerHTML} =`
     ProcessResult()
-
 }
 
 // Organiza as contas
