@@ -18,6 +18,7 @@ function CalcAction(action) {
 
     count.push(Number(document.getElementById("total").innerHTML))
 
+    // Garante que o número decimal esteja no formato correto no visor
     if(currentNumber.split('')[currentNumber.length - 1] == '.') {
         document.getElementById("accumulator").removeAttribute("hidden")
         document.getElementById("accumulator").innerHTML += `${document.getElementById("total").innerHTML}0 ${action}`
@@ -35,15 +36,10 @@ function CalcAction(action) {
 
 let saveAction = 0
 
-// Efetua as operações e exibe o resultado
+// Exibe o resulado
 function Result() {
     let currentAccum = document.getElementById("accumulator").innerHTML
     let currentNumber = document.getElementById("total").innerHTML
-
-    // ???
-    if(currentAccum[currentAccum.length-1] === "=" && currentNumber.length > 0) { // 1 + =
-        document.getElementById("total").innerHTML = ProcessAction(Number(currentNumber), Number(currentNumber), saveAction).toString().substring(0, MAX_VISOR_CHAR)
-    }
 
     if(count.length === 0) { return }
 
@@ -54,6 +50,7 @@ function Result() {
 
 }
 
+// Organiza as contas
 function ProcessResult() {
     let action = null
     let current = null
@@ -112,3 +109,15 @@ function CleanAll() {
     document.getElementById("accumulator").innerHTML = ""
     count = []
 } 
+
+function AddComma() {
+    let currentNumber = document.getElementById("total").innerHTML
+
+    if(currentNumber == '') {
+        document.getElementById("total").removeAttribute("hidden")
+        document.getElementById("total").innerHTML = "0."
+    }
+    else if(!currentNumber.includes(".")) {
+        document.getElementById("total").innerHTML += "."
+    }
+}
