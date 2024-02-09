@@ -2,9 +2,9 @@
 ## Descrição
 Esse projeto foi desenvolvido a partir de um outro repositório, portanto, foi feito com o instuito de ser uma cópia e o objetivo foi praticar e aprender durante o processo. No entanto, realizei uma correção no código original, visto que uma parte da lógica não abrangia alguns casos.
 
-## Imagens
+## Layout Final
 
-![Calculadora Simples](https://static.wikia.nocookie.net/herois/images/0/00/Goku_Super_Hero_Infobox.webp/revision/latest?cb=20230201224118&path-prefix=pt-br)
+![Calculadora Simples](/imagens/calculator-pic-two.png)
 
 ## Tecnologias Utilizadas
 Linguagem de programação: JavaScript <br>
