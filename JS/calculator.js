@@ -34,6 +34,39 @@ function CalcAction(action) {
 
 }
 
+// Limpa toda informação do visor e do histórico
+function CleanAll() { 
+    document.getElementById("total").innerHTML = ""
+    document.getElementById("accumulator").innerHTML = ""
+    count = []
+} 
+
+// Limpa o valor atual presente no visor
+function CleanCurrentEntry() {
+    document.getElementById("total").innerHTML = ""
+}
+
+function Percentage() {
+    let currentNumber = document.getElementById("total").innerHTML
+
+    if(currentNumber != "") {
+        document.getElementById("total").innerHTML = Number(currentNumber)/100
+    }
+}
+
+// Tornar decimal
+function AddComma() {
+    let currentNumber = document.getElementById("total").innerHTML
+
+    if(currentNumber == '') {
+        document.getElementById("total").removeAttribute("hidden")
+        document.getElementById("total").innerHTML = "0."
+    }
+    else if(!currentNumber.includes(".")) {
+        document.getElementById("total").innerHTML += "."
+    }
+}
+
 let saveAction = 0
 
 // Exibe o resulado
@@ -95,29 +128,5 @@ function ProcessAction(num1, num2, action) {
         case '-': return num1 - num2
         case 'x': return num1 * num2
         case '/': return num1 / num2
-    }
-}
-
-// Limpa o valor atual presente no visor
-function CleanCurrentEntry() {
-    document.getElementById("total").innerHTML = ""
-}
-
-// Limpa toda informação do visor e do histórico
-function CleanAll() { 
-    document.getElementById("total").innerHTML = ""
-    document.getElementById("accumulator").innerHTML = ""
-    count = []
-} 
-
-function AddComma() {
-    let currentNumber = document.getElementById("total").innerHTML
-
-    if(currentNumber == '') {
-        document.getElementById("total").removeAttribute("hidden")
-        document.getElementById("total").innerHTML = "0."
-    }
-    else if(!currentNumber.includes(".")) {
-        document.getElementById("total").innerHTML += "."
     }
 }
