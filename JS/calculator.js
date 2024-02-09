@@ -31,6 +31,7 @@ function CalcAction(action) {
     document.getElementById("total").innerHTML = ""
 
     count.push(action)
+    console.log(count)
 
 }
 
@@ -67,8 +68,6 @@ function AddComma() {
     }
 }
 
-let saveAction = 0
-
 // Exibe o resulado
 function Result() {
     let currentAccum = document.getElementById("accumulator").innerHTML
@@ -76,8 +75,9 @@ function Result() {
 
     if(count.length === 0) { return }
 
-    // Organiza a linha com os calculos
+    // Inclui o número atual do visor na conta
     count.push(Number(document.getElementById("total").innerHTML))
+    // Organiza a linha com os calculos
     document.getElementById("accumulator").innerHTML += ` ${document.getElementById("total").innerHTML} =`
     ProcessResult()
 
@@ -85,37 +85,27 @@ function Result() {
 
 // Organiza as contas
 function ProcessResult() {
-    let action = null
-    let current = null
+    let actions = []
+    let numbers = []
     let total = 0
 
-    // Se o último for um operador
-    if(isNaN(count[count.length-1])) {
-        count.pop
-    }
-    // AJUSTAR A LÓGICA, ELA FALHA NO SINAL DO MEIO 
-    count.forEach(n => {// 1 + 2 (+) 3 + 4
-        // Se for um número
-        if(!isNaN(n)) {
-            if(current == null) {
-                current = n
-            }
-            else {
-                total += ProcessAction(current, n, action)
-                current = null
-            }
-        }
+    for(let i=0; i<count.length; i++) {
         // Se for um operador
-        else {
-            action = n
-            saveAction = n
+        if(isNaN(count[i])) {
+            actions.push(count[i])
         }
-    })
+        // Se for um número
+        else {
+            numbers.push(Number(count[i]))
+        }
+      }
 
-    // Caso o último número sobre sem par
-    if(current != null) {
-        total = ProcessAction(total, current, action)
-    }
+      // Percorre o vetor dos operadores enquanto faz as operações e atualiza o vetor dos números
+      for(let i=0; i<actions.length; i++) {
+        total = ProcessAction(numbers[0], numbers[1], actions[i])
+        numbers.shift()
+        numbers[0] = total
+   }
 
     document.getElementById("total").innerHTML = total.toString().substring(0, MAX_VISOR_CHAR)
     count = []
